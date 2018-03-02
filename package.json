@@ -1,0 +1,16 @@
+{
+    "name": "nuxt-tutorial",
+    "dependencies": {
+        "nuxt": "latest"
+    },
+    "config": {
+        "nuxt": {
+            "port": "3333"
+        }
+    },
+    "scripts": {
+        "dev": "nuxt",
+        "build": "nuxt build",
+        "start": "nuxt start"
+    }
+}
