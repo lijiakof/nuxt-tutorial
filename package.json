@@ -1,6 +1,7 @@
 {
     "name": "nuxt-tutorial",
     "dependencies": {
+        "axios": "latest",
         "nuxt": "latest"
     },
     "config": {
