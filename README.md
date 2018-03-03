@@ -252,4 +252,58 @@ export default {
 Nuxt.js 扩展了 Vue.js，增加了一个叫 asyncData 的方法，使得我们可以在设置组件的数据之前能异步获取或处理数据。
 
 ### asyncData 方法
+`asyncData` 方法会在组件（限于页面组件）每次加载之前被调用。
+
+Nuxt.js 提供了几种不同的方法来使用 asyncData 方法，你可以选择自己熟悉的一种来用：
+
+* 返回 Promise
+
+```
+export default {
+    asyncData ({ params }) {
+    return axios.get(`https://my-api/posts/${params.id}`)
+        .then((res) => {
+        return { title: res.data.title }
+        })
+    }
+}
+```
+
+* 使用 async或await
+
+```
+export default {
+    async asyncData ({ params }) {
+        let { data } = await axios.get(`https://my-api/posts/${params.id}`)
+        return { title: data.title }
+    }
+}
+```
+
+* 使用 回调函数
+
+```
+export default {
+    data () {
+        return { project: 'default' }
+    },
+    asyncData (context) {
+        return { context: context }
+    }
+}
+```
+
+### 上下文
+
+```
+export default {
+    data () {
+        return { project: 'default' }
+    },
+    asyncData (context) {
+        return { project: 'nuxt' }
+    }
+}
+```
+
 
